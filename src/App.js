@@ -1,9 +1,13 @@
-function App() {
+import Header from "./components/Header";
+import Characters from "./components/Characters";
+
+const App = () => {
   return (
-    <div className="App">
-     <button className="btn btn-primary">Teste</button> 
+    <div className="flex flex-col items-center">
+      <Header />
+      <Characters />
     </div>
   );
-}
+};
 
 export default App;
