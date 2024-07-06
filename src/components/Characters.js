@@ -36,10 +36,10 @@ const Characters = () => {
             </div>
           </td>
           <td>
-            <span className="badge badge-ghost badge-sm">15</span>
+            <span className="badge badge-ghost badge-md text-base">15</span>
           </td>
           <td>
-            <span className="badge badge-ghost badge-sm">15</span>
+            <span className="badge badge-ghost badge-md text-base">15</span>
           </td>
         </tr>
     </tbody>
