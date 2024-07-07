@@ -21,10 +21,10 @@ const Entity = (props) => {
             </div>
           </td>
           <td>
-            <span className="badge badge-ghost badge-md text-base">{initiative}</span>
+            <span className="badge badge-primary badge-outline badge-md text-base">{initiative}</span>
           </td>
           <td>
-            <span className="badge badge-ghost badge-md text-base">{actions}</span>
+            <span className="badge badge-secondary badge-outline badge-md text-base">{actions}</span>
           </td>
         </tr>
   ); 

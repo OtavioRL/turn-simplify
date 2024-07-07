@@ -12,7 +12,7 @@ const Characters = () => {
           </th>
           <th>Nome</th>
           <th>Iniciativa</th>
-          <th>Ações</th>
+          <th>Ações restantes</th>
           <th></th>
         </tr>
       </thead>
