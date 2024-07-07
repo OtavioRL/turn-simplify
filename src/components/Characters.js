@@ -1,4 +1,5 @@
 import guts from "../images/guts.webp"
+import Entity from "./Entity";
 
 const Characters = () => {
   return (
@@ -16,33 +17,14 @@ const Characters = () => {
         </tr>
       </thead>
       <tbody>
-        {/* row 1 */}
-        <tr>
-          <th>
-          </th>
-          <td>
-            <div className="flex items-center gap-2">
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src={guts}
-                    alt="Avatar Tailwind CSS Component" />
-                </div>
-              </div>
-              <div>
-                <div className="font-bold">Guts</div>
-                <div className="text-sm opacity-50">Thiago</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            <span className="badge badge-ghost badge-md text-base">15</span>
-          </td>
-          <td>
-            <span className="badge badge-ghost badge-md text-base">15</span>
-          </td>
-        </tr>
-    </tbody>
+        <Entity 
+          image={guts} 
+          charName="Guts" 
+          playerName="Thiago" 
+          initiative="9"
+          actions="2"
+        /> 
+      </tbody>
   </table>
   </div>
   ); 
