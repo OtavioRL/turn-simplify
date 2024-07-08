@@ -17,13 +17,7 @@ const Characters = () => {
         </tr>
       </thead>
       <tbody>
-        <Entity 
-          image={guts} 
-          charName="Guts" 
-          playerName="Thiago" 
-          initiative="9"
-          actions="2"
-        />
+
       </tbody>
   </table>
   </div>

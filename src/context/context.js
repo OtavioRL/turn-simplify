@@ -7,7 +7,12 @@ const MyProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
 
   return (
-    <MyContext.Provider value={{ character, setCharacter }}>
+    <MyContext.Provider value={{ 
+        character, 
+        setCharacter, 
+        characters, 
+        setCharacters 
+      }}>
       {children}
     </MyContext.Provider>
   );

@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/context";
 
 const Options = () => {
-  const { setCharacter, character } = useContext(MyContext);
+  const { setCharacter, character, setCharacters } = useContext(MyContext);
   const [initiative, setInitiative] = useState(character.initiative);
   const [actions, setActions] = useState(character.actions);
   const [name, setName] = useState(character.charName);
@@ -32,7 +32,7 @@ const Options = () => {
   }
 
   const handleAdd = () => {
-
+    // setCharacters((prevCharacters) => [...prevCharacters, { charName: character.charName}])
   };
 
   const handleCharacterSelect = ({ target }) => {
