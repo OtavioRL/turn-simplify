@@ -3,10 +3,10 @@ import React, { createContext, useState } from 'react';
 const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
-  const [defaultChars, setDefaultChars] = useState([]);
+  const [character, setCharacter] = useState(undefined);
 
   return (
-    <MyContext.Provider value={{ defaultChars, setDefaultChars }}>
+    <MyContext.Provider value={{ character, setCharacter }}>
       {children}
     </MyContext.Provider>
   );
