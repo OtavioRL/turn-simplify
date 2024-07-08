@@ -1,4 +1,4 @@
-import guts from "../images/guts.webp"
+import guts from "../images/Guts.webp"
 import Entity from "./Entity";
 
 const Characters = () => {
@@ -23,7 +23,7 @@ const Characters = () => {
           playerName="Thiago" 
           initiative="9"
           actions="2"
-        /> 
+        />
       </tbody>
   </table>
   </div>
