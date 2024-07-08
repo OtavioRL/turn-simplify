@@ -12,6 +12,7 @@ const Options = () => {
   const { setCharacter, character } = useContext(MyContext);
   const [initiative, setInitiative] = useState(character.initiative);
   const [actions, setActions] = useState(character.actions);
+  const [name, setName] = useState(character.charName);
 
   useEffect(() => {
     setInitiative(character.initiative);
@@ -25,6 +26,10 @@ const Options = () => {
   const handleActions = ({target}) => {
     setActions(target.value);
   };
+
+  const handleName = ({target}) => {
+    setName(target.value);
+  }
 
   const handleAdd = () => {
 
@@ -53,7 +58,7 @@ const Options = () => {
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Adicionar personagem</h3>
-          <select className="select select-accent mt-5 w-full max-w-xs" onChange={handleCharacterSelect}>
+          <select className="select select-primary mt-5 w-full max-w-xs" onChange={handleCharacterSelect}>
             <option disabled selected>Player ou inimigo?</option>
             <option>Guts</option>
             <option>Thorfinn</option>
@@ -63,7 +68,41 @@ const Options = () => {
             <option>Loyd</option>
             <option>Inimigo</option>
           </select>
-          {character === "" ? <h1></h1> : (
+          {character === "" ? <h1></h1> : character.charName === "" ? (
+            <div className="flex flex-col">
+              <input
+                type="text"
+                placeholder="Nome do inimigo"
+                value={name}
+                onChange={handleName}
+                className="input mt-5 input-bordered input-error w-full max-w-xs" 
+              />              
+              <div className="flex items-center gap-2 mt-5">
+                <div className="avatar">
+                  <div className="mask mask-squircle h-12 w-12">
+                    <img
+                      src={character.image}
+                      alt="ngm do grupo é cego kk" />
+                  </div>
+                </div>
+              <input
+                type="number"
+                placeholder="Iniciativa"
+                value={initiative}
+                onChange={handleInitiative}
+                className="input input-bordered input-primary w-full max-w-xs" 
+              />
+              <input
+                type="number"
+                placeholder="Ações"
+                value={actions}
+                onChange={handleActions}
+                className="input input-bordered input-secondary w-full max-w-xs" 
+              />
+              </div>
+              <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
+            </div>
+            ) : (
             <div className="flex flex-col">
             <div className="flex items-center gap-2 mt-5">
               <div className="avatar">
