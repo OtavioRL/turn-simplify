@@ -45,13 +45,17 @@ const Options = () => {
             <option>Inimigo</option>
           </select>
           {character === undefined ? <h1></h1> : (
-            <div className="mt-5">
+            <div className="flex items-center gap-2 mt-5">
               <div className="avatar">
                 <div className="mask mask-squircle h-12 w-12">
                   <img
                     src={character.image}
                     alt="Avatar Tailwind CSS Component" />
                 </div>
+              </div>
+              <div>
+                <div className="font-bold">{character.charName}</div>
+                <div className="text-sm opacity-50">{character.playerName}</div>
               </div>
             </div>
           )}
