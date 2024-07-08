@@ -5,11 +5,30 @@ import NoraImage from "../images/Nora.jpg";
 import GandalfImage from "../images/Gandalf.webp";
 import LoydImage from "../images/Oponent.webp";
 import EnemyImage from "../images/Oponent.webp";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/context";
 
 const Options = () => {
   const { setCharacter, character } = useContext(MyContext);
+  const [initiative, setInitiative] = useState(character.initiative);
+  const [actions, setActions] = useState(character.actions);
+
+  useEffect(() => {
+    setInitiative(character.initiative);
+    setActions(character.actions);
+  }, [character]);
+
+  const handleInitiative = ({target}) => {
+    setInitiative(target.value);
+  };
+
+  const handleActions = ({target}) => {
+    setActions(target.value);
+  };
+
+  const handleAdd = () => {
+
+  };
 
   const handleCharacterSelect = ({ target }) => {
     const selectedCharacter = target.value;
@@ -44,19 +63,36 @@ const Options = () => {
             <option>Loyd</option>
             <option>Inimigo</option>
           </select>
-          {character === undefined ? <h1></h1> : (
+          {character === "" ? <h1></h1> : (
+            <div className="flex flex-col">
             <div className="flex items-center gap-2 mt-5">
               <div className="avatar">
                 <div className="mask mask-squircle h-12 w-12">
                   <img
                     src={character.image}
-                    alt="Avatar Tailwind CSS Component" />
+                    alt="ngm do grupo é cego kk" />
                 </div>
               </div>
               <div>
                 <div className="font-bold">{character.charName}</div>
                 <div className="text-sm opacity-50">{character.playerName}</div>
               </div>
+              <input
+                type="number"
+                placeholder="Iniciativa"
+                value={initiative}
+                onChange={handleInitiative}
+                className="input input-bordered input-primary w-full max-w-xs" 
+              />
+              <input
+                type="number"
+                placeholder="Ações"
+                value={actions}
+                onChange={handleActions}
+                className="input input-bordered input-secondary w-full max-w-xs" 
+              />
+            </div>
+              <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
             </div>
           )}
         </div>
