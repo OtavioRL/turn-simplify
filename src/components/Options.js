@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/context";
 
 const Options = () => {
-  const { setCharacter, character, setCharacters } = useContext(MyContext);
+  const { setCharacter, character, setCharacters, characters } = useContext(MyContext);
   const [initiative, setInitiative] = useState(character.initiative);
   const [actions, setActions] = useState(character.actions);
   const [name, setName] = useState(character.charName);
@@ -73,9 +73,26 @@ const Options = () => {
     setCharacter(charInfo[selectedCharacter]);
   };
 
+  const handleStart = () => {
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    const unsortedCharacters = characters.map((character) => {
+      return {
+        charName: character.charName,
+        playerName: character.playerName,
+        image: character.image,
+        initiative: character.initiative,
+        currentInitiative: Number(character.initiative) + randomNumber,
+        currentActions: character.actions,
+        actions: character.actions
+      };
+    });
+    setCharacters(unsortedCharacters.sort((a, b) => b.currentInitiative - a.currentInitiative));
+
+  };
+
   return (
     <div className="fixed bottom-10 mt-5 w-full flex justify-around">
-      <button className="btn btn-outline btn-accent">Começar turno</button>
+      <button onClick={handleStart} className="btn btn-outline btn-accent">Começar turno</button>
       <button class="btn btn-outline btn-success" onClick={()=>document.getElementById('my_modal_2').showModal()}>Adicionar personagem</button>
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
