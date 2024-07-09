@@ -74,7 +74,7 @@ const Options = () => {
   };
 
   return (
-    <div className="mt-5 w-full flex justify-around">
+    <div className="fixed bottom-10 mt-5 w-full flex justify-around">
       <button className="btn btn-outline btn-accent">Começar turno</button>
       <button class="btn btn-outline btn-success" onClick={()=>document.getElementById('my_modal_2').showModal()}>Adicionar personagem</button>
       <dialog id="my_modal_2" className="modal">
