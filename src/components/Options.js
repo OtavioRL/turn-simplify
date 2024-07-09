@@ -73,9 +73,10 @@ const Options = () => {
     setCharacter(charInfo[selectedCharacter]);
   };
 
-  const handleStart = () => {
-    const randomNumber = Math.floor(Math.random() * 10) + 1;
+  const handleStart = () => { 
     const unsortedCharacters = characters.map((character) => {
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      
       return {
         charName: character.charName,
         playerName: character.playerName,
