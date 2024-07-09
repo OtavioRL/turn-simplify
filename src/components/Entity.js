@@ -6,7 +6,9 @@ const Entity = (props) => {
   const { characters, setCharacters } = useContext(MyContext);
   const handleClick = () => {
     const target = characters.find((character) => character.charName === charName);
-    target.currentActions = target.currentActions - 1;
+    if(target.currentActions !== 0) {
+      target.currentActions = target.currentActions - 1;
+    }
     const updatedCharacters = characters.map(character => 
       character.charName === charName ? target : character
     );
@@ -15,7 +17,7 @@ const Entity = (props) => {
   };
 
   return (
-        <tr onClick={handleClick}>
+        <tr onClick={handleClick} className={Number(actions) === 0 ? 'opacity-10': ''}>
           <th>
           </th>
           <td>
