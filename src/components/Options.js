@@ -41,7 +41,7 @@ const Options = () => {
         currentActions: actions,
         actions,
         image: character.image
-      }]);
+      }].sort((a, b) => b.initiative - a.initiative));
     } else {
       setCharacters((prevCharacters) => [...prevCharacters, { 
         charName: character.charName,
@@ -51,7 +51,7 @@ const Options = () => {
         currentActions: actions,
         actions,
         image: character.image
-      }]);
+      }].sort((a, b) => b.initiative - a.initiative));
     }
 
     document.getElementById('my_modal_2').close(); 

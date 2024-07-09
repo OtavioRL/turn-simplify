@@ -1,5 +1,4 @@
 import { MyContext } from "../context/context";
-import guts from "../images/Guts.webp"
 import Entity from "./Entity";
 import { useContext } from "react";
 
