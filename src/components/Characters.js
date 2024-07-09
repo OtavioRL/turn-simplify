@@ -1,7 +1,11 @@
+import { MyContext } from "../context/context";
 import guts from "../images/Guts.webp"
 import Entity from "./Entity";
+import { useContext } from "react";
 
 const Characters = () => {
+  const { characters } = useContext(MyContext);
+
   return (
   <div className="overflow-x-auto max-w-full mt-6">
     <table className="table">
@@ -17,7 +21,17 @@ const Characters = () => {
         </tr>
       </thead>
       <tbody>
-
+        {characters.map((character) => {
+          return (
+            <Entity 
+            charName={character.charName}
+            playerName={character.playerName}
+            image={character.image}
+            initiative={character.currentInitiative}
+            actions={character.currentActions}
+          />
+          ) 
+        })}
       </tbody>
   </table>
   </div>

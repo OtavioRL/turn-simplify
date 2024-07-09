@@ -32,7 +32,29 @@ const Options = () => {
   }
 
   const handleAdd = () => {
-    // setCharacters((prevCharacters) => [...prevCharacters, { charName: character.charName}])
+    if(character.playerName === '') {
+      setCharacters((prevCharacters) => [...prevCharacters, { 
+        charName: name,
+        playerName: '',
+        initiative,
+        currentInitiative: initiative,
+        currentActions: actions,
+        actions,
+        image: character.image
+      }]);
+    } else {
+      setCharacters((prevCharacters) => [...prevCharacters, { 
+        charName: character.charName,
+        playerName: character.playerName,
+        initiative,
+        currentInitiative: initiative,
+        currentActions: actions,
+        actions,
+        image: character.image
+      }]);
+    }
+
+    document.getElementById('my_modal_2').close(); 
   };
 
   const handleCharacterSelect = ({ target }) => {
