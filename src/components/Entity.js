@@ -1,8 +1,21 @@
+import { useContext } from "react";
+import { MyContext } from "../context/context";
+
 const Entity = (props) => {
   const { image, charName, playerName, initiative, actions } = props;
+  const { characters, setCharacters } = useContext(MyContext);
+  const handleClick = () => {
+    const target = characters.find((character) => character.charName === charName);
+    target.currentActions = target.currentActions - 1;
+    const updatedCharacters = characters.map(character => 
+      character.charName === charName ? target : character
+    );
+    
+    setCharacters(updatedCharacters.sort((a, b) => b.currentInitiative - a.currentInitiative));
+  };
 
   return (
-        <tr>
+        <tr onClick={handleClick}>
           <th>
           </th>
           <td>
