@@ -63,10 +63,10 @@ const Options = () => {
     const charInfo = {
       Guts: { charName: "Guts", playerName: "Thi", initiative: 9, actions: 2, image: GutsImage },
       Thorfinn: { charName: "Thorfinn", playerName: "Breno", initiative: 17, actions: 3, image: ThorfinnImage },
-      Silva: { charName: "Silva", playerName: "Fer", initiative: 17, actions: 4, image: SilvaImage },
-      Nora: { charName: "Nora", playerName: "Gui", initiative: 17, actions: 3, image: NoraImage },
+      Silva: { charName: "Silva", playerName: "Fer", initiative: 18, actions: 4, image: SilvaImage },
+      Nora: { charName: "Nora", playerName: "Gui", initiative: 17, actions: 4, image: NoraImage },
       Gandalf: { charName: "Gandalf", playerName: "Polk", initiative: 14, actions: 3, image: GandalfImage },
-      Loyd: { charName: "Loyd", playerName: "Julio", initiative: 17, actions: 3, image: LoydImage },
+      Loyd: { charName: "Loyd", playerName: "Julio", initiative: 15, actions: 3, image: LoydImage },
       Inimigo: { charName: "", playerName: "", initiative: 10, actions: 3, image: EnemyImage },
     };
 
