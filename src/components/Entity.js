@@ -3,7 +3,7 @@ import { MyContext } from "../context/context";
 
 const Entity = (props) => {
   const { image, charName, playerName, initiative, actions } = props;
-  const { characters, setCharacters } = useContext(MyContext);
+  const { characters, setCharacters, setSelectedCharacter } = useContext(MyContext);
   const handleClick = () => {
     const target = characters.find((character) => character.charName === charName);
     if(target.currentActions !== 0) {
@@ -17,6 +17,9 @@ const Entity = (props) => {
   };
 
   const handleEdit = () => {
+    const target = characters.find((character) => character.charName === charName);
+    setSelectedCharacter(target);
+
     document.getElementById('my_modal_3').showModal()
   };
 

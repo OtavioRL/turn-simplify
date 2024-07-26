@@ -5,13 +5,16 @@ const MyContext = createContext();
 const MyProvider = ({ children }) => {
   const [character, setCharacter] = useState("");
   const [characters, setCharacters] = useState([]);
+  const [selectedCharacter, setSelectedCharacter] = useState("");
 
   return (
     <MyContext.Provider value={{ 
         character, 
         setCharacter, 
         characters, 
-        setCharacters 
+        setCharacters,
+        selectedCharacter,
+        setSelectedCharacter 
       }}>
       {children}
     </MyContext.Provider>

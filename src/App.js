@@ -5,7 +5,12 @@ import { useContext } from "react";
 import { MyContext } from "./context/context";
 
 const App = () => {
-  const { characters } = useContext(MyContext);
+  const { characters, setCharacters, selectedCharacter } = useContext(MyContext);
+  const handleRemove = () => {
+    let newCharacters = characters.filter(character => character !== selectedCharacter);
+    
+    setCharacters(newCharacters);
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -16,6 +21,9 @@ const App = () => {
           </form>
           <h3 className="font-bold text-lg">Salve!</h3>
           <p className="py-4">Ainda n terminei essa parte kk</p>
+          <form method="dialog">
+            <button onClick={handleRemove} className="btn btn-outline btn-error">Remover</button>
+          </form>
         </div>
       </dialog>      
       <Header />
