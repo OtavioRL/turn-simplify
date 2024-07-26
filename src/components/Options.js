@@ -3,7 +3,7 @@ import ThorfinnImage from "../images/Thorfinn.webp";
 import SilvaImage from "../images/Silva.jpg";
 import NoraImage from "../images/Nora.jpg";
 import GandalfImage from "../images/Gandalf.webp";
-import LoydImage from "../images/Oponent.webp";
+import LoydImage from "../images/Loyd.jpg";
 import EnemyImage from "../images/Oponent.webp";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/context";
