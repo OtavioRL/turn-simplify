@@ -16,8 +16,12 @@ const Entity = (props) => {
     setCharacters(updatedCharacters.sort((a, b) => b.currentInitiative - a.currentInitiative));
   };
 
+  const handleEdit = () => {
+    document.getElementById('my_modal_3').showModal()
+  };
+
   return (
-        <tr onClick={handleClick} className={Number(actions) === 0 ? 'opacity-10': ''}>
+        <tr className={Number(actions) === 0 ? 'opacity-10': ''}>
           <th>
           </th>
           <td>
@@ -38,8 +42,11 @@ const Entity = (props) => {
           <td>
             <span className="badge badge-primary badge-outline badge-md text-base">{initiative}</span>
           </td>
-          <td>
+          <td className="" onClick={handleClick} >
             <span className="badge badge-secondary badge-outline badge-md text-base">{actions}</span>
+          </td>
+          <td>
+            <button onClick={handleEdit} className="btn btn-outline btn-warning">Edit</button>
           </td>
         </tr>
   ); 

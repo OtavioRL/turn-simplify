@@ -6,7 +6,7 @@ const Characters = () => {
   const { characters } = useContext(MyContext);
 
   return (
-  <div className="overflow-x-auto max-w-full mt-6">
+  <div className="overflow-x-auto max-h-[80vh] max-w-full mt-6">
     <table className="table">
       {/* head */}
       <thead className="">
