@@ -80,7 +80,7 @@ const Options = () => {
       Nora: { charName: "Nora", playerName: "Gui", initiative: 17, actions: 4, image: NoraImage },
       Gandalf: { charName: "Gandalf", playerName: "Polk", initiative: 14, actions: 3, image: GandalfImage },
       Loyd: { charName: "Loyd", playerName: "Julio", initiative: 15, actions: 3, image: LoydImage },
-      Inimigo: { charName: "", playerName: "", initiative: 10, actions: 3, image: EnemyImage },
+      Inimigo: { charName: "", playerName: "", initiative: "", actions: "", image: EnemyImage },
     };
 
     setCharacter(charInfo[selectedCharacter]);
