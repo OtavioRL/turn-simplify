@@ -13,6 +13,7 @@ const Options = () => {
   const [initiative, setInitiative] = useState(character.initiative);
   const [actions, setActions] = useState(character.actions);
   const [name, setName] = useState(character.charName);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     setInitiative(character.initiative);
@@ -31,17 +32,24 @@ const Options = () => {
     setName(target.value);
   }
 
+  const handleQuantity = ({target}) => {
+    setQuantity(target.value);
+  }
+
   const handleAdd = () => {
     if(character.playerName === '') {
-      setCharacters((prevCharacters) => [...prevCharacters, { 
-        charName: name,
-        playerName: '',
-        initiative,
-        currentInitiative: initiative,
-        currentActions: actions,
-        actions,
-        image: character.image
-      }].sort((a, b) => b.initiative - a.initiative));
+      for (let i = 1; i <= quantity; i += 1) {
+        setCharacters((prevCharacters) => [...prevCharacters, { 
+          charName: quantity > 1 ? name + " " + i.toString(): name,
+          playerName: '',
+          initiative,
+          currentInitiative: initiative,
+          currentActions: actions,
+          actions,
+          image: character.image
+        }].sort((a, b) => b.initiative - a.initiative));  
+      }
+      
     } else {
       setCharacters((prevCharacters) => [...prevCharacters, { 
         charName: character.charName,
@@ -140,7 +148,13 @@ const Options = () => {
                 className="input input-bordered input-secondary w-full max-w-xs" 
               />
               </div>
-              {/* aqui */}
+              <input 
+                type="number" 
+                placeholder="Quantos?"
+                value={quantity}
+                onChange={handleQuantity}
+                className="input input-bordered w-full max-w-xs mt-5" 
+              />
               <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
             </div>
             ) : (
