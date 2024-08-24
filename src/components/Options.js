@@ -61,7 +61,7 @@ const Options = () => {
     const selectedCharacter = target.value;
 
     const charInfo = {
-      Guts: { charName: "Guts", playerName: "Thi", initiative: 9, actions: 2, image: GutsImage },
+      Guts: { charName: "Guts", playerName: "Thi", initiative: 11, actions: 3, image: GutsImage },
       Thorfinn: { charName: "Thorfinn", playerName: "Breno", initiative: 17, actions: 3, image: ThorfinnImage },
       Silva: { charName: "Silva", playerName: "Fer", initiative: 18, actions: 4, image: SilvaImage },
       Nora: { charName: "Nora", playerName: "Gui", initiative: 17, actions: 4, image: NoraImage },
@@ -140,6 +140,7 @@ const Options = () => {
                 className="input input-bordered input-secondary w-full max-w-xs" 
               />
               </div>
+              {/* aqui */}
               <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
             </div>
             ) : (
