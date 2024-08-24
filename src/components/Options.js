@@ -13,7 +13,8 @@ const Options = () => {
   const [initiative, setInitiative] = useState(character.initiative);
   const [actions, setActions] = useState(character.actions);
   const [name, setName] = useState(character.charName);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState("");
+  const [armourPenalty, setArmourPenalty] = useState("");
 
   useEffect(() => {
     setInitiative(character.initiative);
@@ -30,11 +31,15 @@ const Options = () => {
 
   const handleName = ({target}) => {
     setName(target.value);
-  }
+  };
 
   const handleQuantity = ({target}) => {
     setQuantity(target.value);
-  }
+  };
+
+  const handleArmourPenalty = ({target}) => {
+    setArmourPenalty(target.value);  
+  };
 
   const handleAdd = () => {
     if(character.playerName === '') {
@@ -54,8 +59,8 @@ const Options = () => {
       setCharacters((prevCharacters) => [...prevCharacters, { 
         charName: character.charName,
         playerName: character.playerName,
-        initiative,
-        currentInitiative: initiative,
+        initiative: initiative - Number(armourPenalty),
+        currentInitiative: initiative - Number(armourPenalty),
         currentActions: actions,
         actions,
         image: character.image
@@ -186,6 +191,13 @@ const Options = () => {
                 className="input input-bordered input-secondary w-full max-w-xs" 
               />
             </div>
+              <input
+                type="number"
+                placeholder="Debuff armadura"
+                value={armourPenalty}
+                onChange={handleArmourPenalty}
+                className="input input-bordered input-warning w-full max-w-xs mt-5" 
+              />
               <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
             </div>
           )}
