@@ -15,6 +15,7 @@ const Options = () => {
   const [name, setName] = useState(character.charName);
   const [quantity, setQuantity] = useState("");
   const [armourPenalty, setArmourPenalty] = useState("");
+  const [fadiga, setFadiga] = useState("");
 
   useEffect(() => {
     setInitiative(character.initiative);
@@ -41,6 +42,56 @@ const Options = () => {
     setArmourPenalty(target.value);  
   };
 
+  const handleFadiga = ({target}) => {
+    const nivelFadiga = target.value;
+    let debuffAction = 0;
+    let debuffInitiative = 0
+    
+    switch (nivelFadiga) {
+      case "Descansado":
+        debuffAction += 0;
+        debuffInitiative += 0;            
+        break;
+      case "Levemente cansado":
+        debuffAction += 0;
+        debuffInitiative += 1;
+        break; 
+      case "Cansado":
+        debuffAction += 0;
+        debuffInitiative += 2;
+        break;
+      case "Muito cansado":
+        debuffAction += 0;
+        debuffInitiative += 3;
+        break;
+      case "Exausto":
+        debuffAction += 1;
+        debuffInitiative += 4;
+        break; 
+      case "Debilitado":
+        debuffAction += 2;
+        debuffInitiative += 6;
+        break;
+      case "Incapacitado":
+        debuffAction += 3;
+        debuffInitiative += 8;
+        break;
+      case "Semi consciente":
+        debuffAction += 3;
+        debuffInitiative += 11;
+        break;
+      default:
+        break;
+    }
+    
+    const penalidades = {
+      debuffAction,
+      debuffInitiative
+    };
+
+    setFadiga(penalidades);
+  };
+
   const handleAdd = () => {
     if(character.playerName === '') {
       for (let i = 1; i <= quantity; i += 1) {
@@ -59,10 +110,10 @@ const Options = () => {
       setCharacters((prevCharacters) => [...prevCharacters, { 
         charName: character.charName,
         playerName: character.playerName,
-        initiative: initiative - Number(armourPenalty),
-        currentInitiative: initiative - Number(armourPenalty),
-        currentActions: actions,
-        actions,
+        initiative: initiative - Number(armourPenalty) - fadiga.debuffInitiative,
+        currentInitiative: initiative - Number(armourPenalty) - fadiga.debuffInitiative,
+        currentActions: actions - fadiga.debuffAction,
+        actions: actions - fadiga.debuffAction,
         image: character.image
       }].sort((a, b) => b.initiative - a.initiative));
     }
@@ -198,6 +249,19 @@ const Options = () => {
                 onChange={handleArmourPenalty}
                 className="input input-bordered input-warning w-full max-w-xs mt-5" 
               />
+              <select className="select select-bordered mt-5 w-full max-w-xs" onChange={handleFadiga}>
+                <option disabled selected>Nível de fadiga</option>
+                <option>Descansado</option>
+                <option>Levemente cansado</option>
+                <option>Cansado</option>
+                <option>Muito cansado</option>
+                <option>Exausto</option>
+                <option>Debilitado</option>
+                <option>Incapacitado</option>
+                <option>Semi consciente</option>
+                <option>Inconsciente</option>
+                <option>Morto</option>
+              </select>
               <button onClick={handleAdd} className="mt-5 btn btn-outline btn-success">Adicionar</button>
             </div>
           )}
